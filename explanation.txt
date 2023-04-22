@@ -1,0 +1,17 @@
+Puzzle : You stumble upon an ancient treasure locked behind a convoluted puzzle mechanism: a rotating box with 4 identically looking buttons on it. Each button has two states - on and off - but it's impossible to distinguish these states from the outside. You can simultaneously press any number of buttons, but immediately after that the box rotates really fast and you lose track of which button ends up where. You get the treasure if at any moment all the buttons are off. Can you guarantee this is happening? 
+
+
+
+->There is no guarantee that we can get the treasure. A scenario where it would be impossible to get the treasure would be when initially an odd number of buttons are turned on in the box (suppose 1 button is on) and we press two buttons simultaneously (1 button may remain on or 3 buttons may be on after this). The box rotates after this. If we keep repeating this pattern of pressing two buttons after each rotation of the box then this will continue forever. 
+
+The total number of button state changes after pressing two buttons is two. As a result, the total number of buttons turned on remains odd. This happens again after each rotation of the box if we keep repeating this pattern. We can never end up in the state where the total number of buttons turned on is even (0 buttons turned on) from this odd state repeating the above pattern.
+
+The same thing happens if we press all four buttons instead of the two buttons for the above scenario, and we can never get the treasure.
+
+But if there are even numbers of buttons turned on initially, we may get the treasure after certain tries by repeating the above pattern of pressing two or four buttons.
+
+However, on pressing an odd number of buttons on each try, the number of buttons turned on changes from even to odd and vice versa. Thus, there is no such condition of being stuck forever.
+
+I performed a simulation of the problem using a Python program and tried finding out the number of tries after which we could get the treasure from the box. I tested it for cases - pressing 1 button in each try (button at a particular position and button at a random position), pressing 2 buttons in each try (buttons at particular positions and buttons at random positions),
+pressing 3 buttons in each try (buttons at particular positions and buttons at random positions) and pressing 4 buttons in each try.
+
